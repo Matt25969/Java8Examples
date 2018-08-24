@@ -13,7 +13,7 @@ public class Logic {
 
 		greetService1.saySecondMessage("Mahesh", " is the best");
 
-		greetService1.saySecondMessage("Mark", " is the second best");
+		greetService1.saySecondMessage("Mark", " is the worst");
 
 		Random random = new Random();
 
@@ -22,6 +22,7 @@ public class Logic {
 		stringsMethod();
 
 		squaresMethod();
+
 	}
 
 	public static void stringsMethod() {
@@ -40,9 +41,19 @@ public class Logic {
 
 		List<Integer> squaresList = numbers.stream().map(i -> i * i).distinct().collect(Collectors.toList());
 
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("SquaresList - Before it has been sorted");
+		System.out.println("-------------------------------------------------------------");
 		squaresList.forEach(System.out::println);
-
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("SquaresList - After it has been sorted");
+		System.out.println("-------------------------------------------------------------");
 		squaresList.stream().sorted().forEach(System.out::println);
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("SquaresList - After it has been reduced");
+		System.out.println("-------------------------------------------------------------");
+		// squaresList.stream().reduce(null).forEach(System.out::println);
+		System.out.println(squaresList.stream().reduce(0, (a, b) -> a + b));
 
 	}
 

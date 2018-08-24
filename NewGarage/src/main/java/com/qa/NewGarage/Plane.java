@@ -2,15 +2,12 @@ package com.qa.NewGarage;
 
 public class Plane extends Vehicle {
 
-	private int numberOfParachutes;
-
-	public Plane(int numberOfParachutes, String ID) {
-
+	public Plane(String ID) {
 		super(ID);
-
-		this.numberOfParachutes = numberOfParachutes;
-
+		// TODO Auto-generated constructor stub
 	}
+
+	private int numberOfParachutes;
 
 	public int getNumberOfParachutes() {
 		return numberOfParachutes;
