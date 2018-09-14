@@ -1,30 +1,45 @@
+package com.qa.MoreStreams;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Logic {
 
-	public static void main(String[] args) {
+	public static void searchForDataUsingStreams() {
 
-		String salutation = "Hello! ";
+		List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
 
-		GreetingService greetService1 = (message, message2) -> System.out.println(salutation + message + message2);
+		System.out.println("---------------------------------------------------------");
 
-		greetService1.saySecondMessage("Mahesh", " is the best");
+		System.out.println(strings.stream().findFirst().get());
 
-		greetService1.saySecondMessage("Mark", " is the worst");
+		System.out.println("---------------------------------------------------------");
 
-		Random random = new Random();
+		System.out.println(strings.stream().findAny().get());
 
-		random.ints().limit(10).forEach(System.out::println);
+		System.out.println("---------------------------------------------------------");
 
-		stringsMethod();
+		System.out.println(strings.stream().anyMatch(n -> n.equals("abc")));
 
-		squaresMethod();
+		System.out.println("---------------------------------------------------------");
 
-		useOfPeek();
+		System.out.println(strings.stream().anyMatch(n -> n.equals("a")));
+
+		System.out.println("---------------------------------------------------------");
+
+		System.out.println(strings.stream().allMatch(n -> n.equals("a")));
+
+		System.out.println("---------------------------------------------------------");
+
+		System.out.println(strings.stream().allMatch(n -> n.getClass().getSimpleName().equals("String")));
+
+		System.out.println("---------------------------------------------------------");
+
+		System.out.println(strings.stream().noneMatch(n -> n.equals("abc")));
+
+		System.out.println("---------------------------------------------------------");
 
 	}
 
@@ -85,9 +100,4 @@ public class Logic {
 
 	}
 
-	// interface NumberService{
-	//
-	// void printNumbers()
-	//
-	// }
 }
