@@ -26,13 +26,15 @@ public class Logic {
 
 		useOfPeek();
 
+		oldFindMaxMethod();
+
 	}
 
 	public static void useOfPeek() {
 
 		List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
 
-		List<String> peeked = strings.stream().peek(s -> System.out.println("something" + s)).limit(5)
+		List<String> peeked = strings.stream().peek(s -> System.out.println("something " + s)).limit(5)
 				.collect(Collectors.toList());
 
 		System.out.println(peeked);
@@ -76,6 +78,34 @@ public class Logic {
 		System.out.println("-------------------------------------------------------------");
 		// squaresList.stream().reduce(null).forEach(System.out::println);
 		System.out.println(squaresList.stream().reduce(0, (a, b) -> a + b));
+
+	}
+
+	public static void oldFindMaxMethod() {
+
+		List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5, 9, 8, 12);
+
+		numbers.sort(null);
+
+		System.out.println(numbers.get(numbers.size() - 1));
+
+		System.out.println("-------------------------------------------------");
+
+		numbers.stream().filter(i -> i % 2 == 0).forEach(System.out::println);
+
+		System.out.println("-------------------------------------------------");
+
+		numbers.stream().forEach(System.out::println);
+
+		System.out.println(numbers.stream().max((i, j) -> i.compareTo(j)).toString());
+
+		System.out.println(numbers.stream().min((i, j) -> i.compareTo(j)).toString());
+
+		numbers.stream().map(i -> i * 10).forEach(System.out::println);
+
+		List<Integer> squaredList = numbers.stream().map(i -> i * i).collect(Collectors.toList());
+
+		squaredList.stream().forEach(System.out::println);
 
 	}
 

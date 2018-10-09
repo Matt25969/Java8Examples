@@ -13,6 +13,10 @@ public class Logic {
 
 		System.out.println("---------------------------------------------------------");
 
+		// System.out.println(strings.stream().
+
+		System.out.println("---------------------------------------------------------");
+
 		System.out.println(strings.stream().findFirst().get());
 
 		System.out.println("---------------------------------------------------------");
